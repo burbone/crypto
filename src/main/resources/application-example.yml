@@ -1,0 +1,74 @@
+# Copy this file to `application-local.yml` and fill in your values.
+# `application-local.yml` is git-ignored and must not be committed.
+
+server:
+  port: 8088
+
+paper:
+  initial-usdt-balance-bybit: 1000
+  initial-usdt-balance-kucoin: 1000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: CHANGE_ME
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+arbitrage:
+  market-data-restart-minutes: 720
+
+  # Strategy parameters — supply your own values.
+  entry-threshold-percent: 0
+  entry-retracement-percent: 0
+  target-profit-percent: 0
+  trailing-exit-percent: 0
+  convergence-threshold-percent: 0
+  loan-ratio-of-bybit-balance: 0
+  position-timeout-seconds: 0
+  ban-duration-hours: 0
+  loan-rate-cache-seconds: 60
+  margin-call-ltv-percent: 0
+  liquidation-ltv-percent: 0
+
+  bybit-spot-taker-fee-percent: 0
+  bybit-futures-taker-fee-percent: 0
+  kucoin-spot-taker-fee-percent: 0
+  kucoin-futures-taker-fee-percent: 0
+
+  max-slippage-percent: 0
+  min-loan-amount-usdt: 0
+  max-open-positions: 0
+
+  allocation-min-spread-percent: 0
+  allocation-max-spread-percent: 0
+  allocation-min-percent: 0
+  allocation-max-percent: 0
+
+  test-mode-enabled: false
+
+  bybit:
+    api-key: YOUR_BYBIT_API_KEY
+    api-secret: YOUR_BYBIT_API_SECRET
+    base-url: https://api.bybit.com
+    ws-url: wss://stream.bybit.com/v5/public/spot
+
+  kucoin:
+    api-key: YOUR_KUCOIN_API_KEY
+    api-secret: YOUR_KUCOIN_API_SECRET
+    api-passphrase: YOUR_KUCOIN_API_PASSPHRASE
+    base-url: https://api.kucoin.com
+    futures-base-url: https://api-futures.kucoin.com
+
+  test-pairs:
+    - TESTUSDT
+    - TEST2USDT
+
+  tracked-pairs:
+    - BTCUSDT
+    - ETHUSDT
+    - SOLUSDT
+    - ADAUSDT
+    - DOGEUSDT

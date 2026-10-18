@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bybit ⇄ KuCoin Arbitrage Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand">
+        <span class="eyebrow">LIVE · PAPER TRADING</span>
+        <h1>Bybit <span class="arrow">⇄</span> KuCoin<span class="brand-sub">Arbitrage Monitor</span></h1>
+    </div>
+    <div class="status" id="status" role="status">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusText">Подключение…</span>
+    </div>
+</header>
+
+<div class="conn-error" id="connError" hidden>
+    Нет связи с API бота. Проверь, что Spring Boot приложение запущено на этом адресе,
+    или поменяй <code>API_BASE</code> в <code>app.js</code>, если фронт хостится отдельно.
+</div>
+
+<main>
+    <section class="balances" aria-label="Балансы">
+        <div class="balance-panel exchange-bybit">
+            <span class="exchange-label">Bybit</span>
+            <span class="balance-value mono" id="bybitBalance">—</span>
+            <span class="balance-unit">USDT · mark-to-market</span>
+        </div>
+
+        <div class="balance-panel hero">
+            <span class="exchange-label">Общий результат</span>
+            <span class="balance-value mono change" id="totalChange">—</span>
+            <span class="balance-unit mono" id="totalNetWorth">—</span>
+        </div>
+
+        <div class="balance-panel exchange-kucoin">
+            <span class="exchange-label">KuCoin</span>
+            <span class="balance-value mono" id="kucoinBalance">—</span>
+            <span class="balance-unit">USDT · mark-to-market</span>
+        </div>
+    </section>
+
+    <section class="open-position-section" id="openPositionSection" hidden>
+        <div class="open-position-header">
+            <h2>В алгоритме</h2>
+            <span class="open-position-status mono" id="openPositionStatus"></span>
+        </div>
+        <div id="openPositionList"></div>
+    </section>
+
+    <section class="candidates-section" aria-label="Ожидание входа">
+        <div class="candidates-header">
+            <h2>Ожидание входа</h2>
+            <span class="candidates-count mono" id="candidatesCount">0 кандидатов</span>
+        </div>
+        <div class="candidates-list" id="candidatesList">
+            <div class="empty-state" id="candidatesEmptyState">
+                <p class="empty-title">Нет кандидатов</p>
+                <p class="empty-body">Спреды пока ниже порога входа.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="log-section" aria-label="Журнал сделок">
+        <div class="log-header">
+            <h2>Журнал сделок</h2>
+            <span class="log-count mono" id="logCount">0 событий</span>
+        </div>
+
+        <div class="log-columns" aria-hidden="true">
+            <span>Пара</span>
+            <span>Событие</span>
+            <span>Детали</span>
+            <span>Спред / прибыль</span>
+            <span>Время</span>
+        </div>
+
+        <div class="log-list" id="logList">
+            <div class="empty-state" id="emptyState">
+                <p class="empty-title">Сделок пока нет</p>
+                <p class="empty-body">
+                    Бот следит за отслеживаемыми парами в ожидании спреда, который пройдёт порог входа.
+                    Входы, выходы и ошибки будут появляться здесь в момент, когда они происходят.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

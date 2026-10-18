@@ -1,0 +1,57 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Project-specific ###
+
+# Secrets — never commit
+application-local.yml
+application-secret.yml
+.env
+*.env
+!application-example.yml
+
+# Logs
+*.log
+logs/
+
+# Runtime artifacts produced by the trading engine / spread logger
+spread-history.csv
+trade-history.jsonl
+
+# Arthas (local profiling tool, not part of the project)
+arthas-boot.jar
+arthas-output/
+
+# Local temp
+/temp/

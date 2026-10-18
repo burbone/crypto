@@ -1,0 +1,215 @@
+server:
+  port: ${SERVER_PORT:8088}
+
+paper:
+  initial-usdt-balance-bybit: ${PAPER_INITIAL_USDT_BYBIT:1000}
+  initial-usdt-balance-kucoin: ${PAPER_INITIAL_USDT_KUCOIN:1000}
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+arbitrage:
+  market-data-restart-minutes: ${WS_RESTART_MINUTES:720}
+
+  # Strategy parameters. All values are supplied via environment variables.
+  entry-threshold-percent: ${ENTRY_THRESHOLD_PERCENT:0}
+  entry-retracement-percent: ${ENTRY_RETRACEMENT_PERCENT:0}
+  target-profit-percent: ${TARGET_PROFIT_PERCENT:0}
+  trailing-exit-percent: ${TRAILING_EXIT_PERCENT:0}
+  convergence-threshold-percent: ${CONVERGENCE_THRESHOLD_PERCENT:0}
+  loan-ratio-of-bybit-balance: ${LOAN_RATIO_OF_BYBIT_BALANCE:0}
+  position-timeout-seconds: ${POSITION_TIMEOUT_SECONDS:0}
+  ban-duration-hours: ${BAN_DURATION_HOURS:0}
+  loan-rate-cache-seconds: ${LOAN_RATE_CACHE_SECONDS:60}
+  margin-call-ltv-percent: ${MARGIN_CALL_LTV_PERCENT:0}
+  liquidation-ltv-percent: ${LIQUIDATION_LTV_PERCENT:0}
+
+  bybit-spot-taker-fee-percent: ${BYBIT_SPOT_TAKER_FEE_PERCENT:0}
+  bybit-futures-taker-fee-percent: ${BYBIT_FUTURES_TAKER_FEE_PERCENT:0}
+  kucoin-spot-taker-fee-percent: ${KUCOIN_SPOT_TAKER_FEE_PERCENT:0}
+  kucoin-futures-taker-fee-percent: ${KUCOIN_FUTURES_TAKER_FEE_PERCENT:0}
+
+  max-slippage-percent: ${MAX_SLIPPAGE_PERCENT:0}
+  min-loan-amount-usdt: ${MIN_LOAN_AMOUNT_USDT:0}
+  max-open-positions: ${MAX_OPEN_POSITIONS:0}
+
+  allocation-min-spread-percent: ${ALLOCATION_MIN_SPREAD_PERCENT:0}
+  allocation-max-spread-percent: ${ALLOCATION_MAX_SPREAD_PERCENT:0}
+  allocation-min-percent: ${ALLOCATION_MIN_PERCENT:0}
+  allocation-max-percent: ${ALLOCATION_MAX_PERCENT:0}
+
+  test-pairs:
+    - TESTUSDT
+    - TEST2USDT
+
+  test-mode-enabled: ${TEST_MODE_ENABLED:false}
+
+  bybit:
+    api-key: ${BYBIT_API_KEY}
+    api-secret: ${BYBIT_API_SECRET}
+    base-url: https://api.bybit.com
+    ws-url: wss://stream.bybit.com/v5/public/spot
+
+  kucoin:
+    api-key: ${KUCOIN_API_KEY}
+    api-secret: ${KUCOIN_API_SECRET}
+    api-passphrase: ${KUCOIN_API_PASSPHRASE}
+    base-url: https://api.kucoin.com
+    futures-base-url: https://api-futures.kucoin.com
+
+  tracked-pairs:
+    - 0GUSDT
+    - 1INCHUSDT
+    - 2ZUSDT
+    - AAVEUSDT
+    - ACHUSDT
+    - ADAUSDT
+    - AEROUSDT
+    - AEVOUSDT
+    - AGIUSDT
+    - AGLDUSDT
+    - AIXBTUSDT
+    - ALGOUSDT
+    - ALTUSDT
+    - ANIMEUSDT
+    - ANKRUSDT
+    - APEUSDT
+    - APTUSDT
+    - ARBUSDT
+    - ARKMUSDT
+    - ARUSDT
+    - ARXUSDT
+    - ASTERUSDT
+    - ATHUSDT
+    - ATOMUSDT
+    - AUSDT
+    - AVAUSDT
+    - AVAXUSDT
+    - AVNTUSDT
+    - AXSUSDT
+    - AZTECUSDT
+    - BANUSDT
+    - BARDUSDT
+    - BASEDUSDT
+    - BATUSDT
+    - BCHUSDT
+    - BERAUSDT
+    - BICOUSDT
+    - BILLUSDT
+    - BIRBUSDT
+    - BLASTUSDT
+    - BLENDUSDT
+    - BLURUSDT
+    - BMTUSDT
+    - BNBUSDT
+    - BOMEUSDT
+    - BRETTUSDT
+    - BREVUSDT
+    - BRUSDT
+    - C98USDT
+    - CAKEUSDT
+    - CAPUSDT
+    - CARVUSDT
+    - CATIUSDT
+    - CCUSDT
+    - CELOUSDT
+    - CFGUSDT
+    - CGPTUSDT
+    - CHILLGUYUSDT
+    - CHIPUSDT
+    - CHZUSDT
+    - COMPUSDT
+    - COOKIEUSDT
+    - CRVUSDT
+    - CTCUSDT
+    - CYBERUSDT
+    - DATAUSDT
+    - DEEPUSDT
+    - DOGEUSDT
+    - DOLOUSDT
+    - DOODUSDT
+    - DOTUSDT
+    - DRIFTUSDT
+    - DYDXUSDT
+    - DYMUSDT
+    - EDGEUSDT
+    - EGLDUSDT
+    - EIGENUSDT
+    - ELSAUSDT
+    - ENAUSDT
+    - ENJUSDT
+    - ENSOUSDT
+    - ENSUSDT
+    - ERAUSDT
+    - ETCUSDT
+    - ETHFIUSDT
+    - ETHUSDT
+    - FFUSDT
+    - FIGHTUSDT
+    - FILUSDT
+    - FLOCKUSDT
+    - FLOWUSDT
+    - FOGOUSDT
+    - FUSDT
+    - GMTUSDT
+    - GMXUSDT
+    - GOATUSDT
+    - GPSUSDT
+    - GRAMUSDT
+    - GRASSUSDT
+    - GRTUSDT
+    - GRVTUSDT
+    - HAEDALUSDT
+    - HBARUSDT
+    - HMSTRUSDT
+    - HOLOUSDT
+    - HOMEUSDT
+    - HUMAUSDT
+    - HUSDT
+    - HYPERUSDT
+    - HYPEUSDT
+    - ICNTUSDT
+    - ICPUSDT
+    - IDUSDT
+    - IMXUSDT
+    - INITUSDT
+    - INJUSDT
+    - IOUSDT
+    - JASMYUSDT
+    - JTOUSDT
+    - JUPUSDT
+    - KAIAUSDT
+    - KASUSDT
+    - KAVAUSDT
+    - KSMUSDT
+    - LAUSDT
+    - LDOUSDT
+    - LINEAUSDT
+    - LINKUSDT
+    - LITUSDT
+    - LRCUSDT
+    - LTCUSDT
+    - MAGICUSDT
+    - MANAUSDT
+    - MANTAUSDT
+    - MASKUSDT
+    - MAVIAUSDT
+    - MEGAUSDT
+    - MEMEUSDT
+    - MERLUSDT
+    - METUSDT
+    - MEUSDT
+    - MEWUSDT
+    - MINAUSDT
+    - MMTUSDT
+    - MOCAUSDT
+    - MONUSDT
+    - MORPHOUSDT
+    - MOVEUSDT
+    - MOVRUSDT
